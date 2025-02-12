@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     void AssignInputs()
     {
-        input.Main.Move.performed += cts => ClickToMove();
+        input.Main.Move.performed += ctx => ClickToMove();
     }
 
     void ClickToMove()
@@ -49,5 +49,18 @@ public class PlayerController : MonoBehaviour
     void OnDisable()
     {
         input.Disable();
+    }
+
+    private void Update()
+    {
+        FaceTarget();
+        //SetAnimations();
+    }
+
+    void FaceTarget()
+    {
+        Vector3 direction = (agent.destination - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * lookRotationSpeed);
     }
 }
