@@ -13,7 +13,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] ParticleSystem clickEffect;
     [SerializeField] LayerMask clickableLayers;
 
-    float lookRotationSpeed = 8f;
+   
+
+    [SerializeField] private float lookRotationSpeed = 8f;
+
+    
 
     void Awake()
     {
@@ -39,7 +43,10 @@ public class PlayerController : MonoBehaviour
                 Instantiate(clickEffect, hit.point += new Vector3(0, 0.1f, 0), clickEffect.transform.rotation);
             }
         }
+
     }
+
+
 
     void OnEnable()
     {
@@ -55,6 +62,9 @@ public class PlayerController : MonoBehaviour
     {
         FaceTarget();
         //SetAnimations();
+
+        
+
     }
 
     void FaceTarget()
