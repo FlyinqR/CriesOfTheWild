@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
+    public int ActivatedPressure;
+
     // Start is called before the first frame update
     void Start()
     {
