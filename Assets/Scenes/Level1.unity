@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -471,6 +471,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &445894753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 445894755}
+  - component: {fileID: 445894754}
+  m_Layer: 0
+  m_Name: PPManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &445894754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445894753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b731d56cc9d431b44b445c2ac9c7cb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &445894755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445894753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.012232, y: 4.906434, z: 1.3838506}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &472702087
 GameObject:
   m_ObjectHideFlags: 3
@@ -564,7 +608,7 @@ GameObject:
   - component: {fileID: 512781785}
   m_Layer: 0
   m_Name: pressurePlate1 (2)
-  m_TagString: Untagged
+  m_TagString: PresuurePlates
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -581,6 +625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b03129397922c40860e7e58ff628f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 445894754}
+  isActivated: 0
 --- !u!65 &512781786
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -652,7 +698,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512781784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30, y: 0.022, z: -17.7}
+  m_LocalPosition: {x: -11.85, y: 0.022, z: -4.6}
   m_LocalScale: {x: 1.5, y: 0.09182359, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1663,7 +1709,7 @@ GameObject:
   - component: {fileID: 1224101918}
   m_Layer: 0
   m_Name: pressurePlate1
-  m_TagString: Untagged
+  m_TagString: PresuurePlates
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1680,6 +1726,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b03129397922c40860e7e58ff628f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 445894754}
+  isActivated: 0
 --- !u!65 &1224101919
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1805,7 +1853,7 @@ GameObject:
   - component: {fileID: 1270742569}
   m_Layer: 0
   m_Name: pressurePlate1 (4)
-  m_TagString: Untagged
+  m_TagString: PresuurePlates
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1822,6 +1870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b03129397922c40860e7e58ff628f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 445894754}
+  isActivated: 0
 --- !u!65 &1270742570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1893,7 +1943,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270742568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4, y: 0.022, z: -13.6}
+  m_LocalPosition: {x: -3.4, y: 0.022, z: -2.58}
   m_LocalScale: {x: 1.5, y: 0.09182359, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2198,7 +2248,7 @@ GameObject:
   - component: {fileID: 1565069823}
   m_Layer: 0
   m_Name: pressurePlate1 (1)
-  m_TagString: Untagged
+  m_TagString: PresuurePlates
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2215,6 +2265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b03129397922c40860e7e58ff628f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 445894754}
+  isActivated: 0
 --- !u!65 &1565069824
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2286,7 +2338,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565069822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.4, y: 0.022, z: 15.2}
+  m_LocalPosition: {x: -10.47, y: 0.022, z: 12.13}
   m_LocalScale: {x: 1.5, y: 0.09182359, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2483,7 +2535,7 @@ GameObject:
   - component: {fileID: 1959047808}
   m_Layer: 0
   m_Name: pressurePlate1 (3)
-  m_TagString: Untagged
+  m_TagString: PresuurePlates
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2500,6 +2552,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b03129397922c40860e7e58ff628f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 445894754}
+  isActivated: 0
 --- !u!65 &1959047809
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2571,7 +2625,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959047807}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.6, y: 0.022, z: 22.8}
+  m_LocalPosition: {x: 5.87, y: 0.022, z: 11.04}
   m_LocalScale: {x: 1.5, y: 0.09182359, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2700,9 +2754,10 @@ GameObject:
   - component: {fileID: 2063450118}
   - component: {fileID: 2063450119}
   - component: {fileID: 2063450120}
+  - component: {fileID: 2063450121}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2736,7 +2791,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
@@ -2779,6 +2834,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   lookRotationSpeed: 8
+--- !u!136 &2063450121
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063450116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4614359
+  m_Height: 2.5512571
+  m_Direction: 1
+  m_Center: {x: -0.036334157, y: 0.77562857, z: 0}
 --- !u!1 &2110216784
 GameObject:
   m_ObjectHideFlags: 0
