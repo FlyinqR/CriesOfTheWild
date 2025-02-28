@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    public int ActivatedPressure;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +18,8 @@ public class PressurePlate : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Activated");
-    }
+    }*/
 }
