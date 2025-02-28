@@ -40,6 +40,7 @@ public class InteractionScript : MonoBehaviour
             ActivatedPressurePlate += 1;
             Debug.Log("Pressure Plate Activated");
             Debug.Log(ActivatedPressurePlate);
+            collision.gameObject.SetActive(false);
         }
     }
 
