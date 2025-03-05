@@ -255,9 +255,15 @@ namespace TMPro.Examples
 
                     TMP_LinkInfo linkInfo = m_TextMeshPro.textInfo.linkInfo[linkIndex];
 
+<<<<<<< Updated upstream
                    // Debug.Log("Link ID: \"" + linkInfo.GetLinkID() + "\"   Link Text: \"" + linkInfo.GetLinkText() + "\""); // Example of how to retrieve the Link ID and Link Text.
 
                     Vector3 worldPointInRectangle = Vector3.zero;
+=======
+                    // Debug.Log("Link ID: \"" + linkInfo.GetLinkID() + "\"   Link Text: \"" + linkInfo.GetLinkText() + "\""); // Example of how to retrieve the Link ID and Link Text.
+
+                    Vector3 worldPointInRectangle;
+>>>>>>> Stashed changes
                     RectTransformUtility.ScreenPointToWorldPointInRectangle(m_TextMeshPro.rectTransform, Input.mousePosition, m_Camera, out worldPointInRectangle);
 
                     switch (linkInfo.GetLinkID())

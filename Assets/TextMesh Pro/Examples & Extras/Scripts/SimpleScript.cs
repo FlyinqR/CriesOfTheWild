@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 using UnityEngine;
+=======
+﻿using UnityEngine;
+>>>>>>> Stashed changes
 using System.Collections;
 
 
@@ -42,7 +46,11 @@ namespace TMPro.Examples
             //m_textMeshPro.wordSpacing = 0.1f;
 
             //m_textMeshPro.enableCulling = true;
+<<<<<<< Updated upstream
             m_textMeshPro.enableWordWrapping = false; 
+=======
+            m_textMeshPro.enableWordWrapping = false;
+>>>>>>> Stashed changes
 
             //textMeshPro.fontColor = new Color32(255, 255, 255, 255);
         }

@@ -8,10 +8,21 @@ namespace TMPro.Examples
 
         public TMP_TextEventHandler TextEventHandler;
 
+<<<<<<< Updated upstream
+=======
+        private TMP_Text m_TextComponent;
+
+>>>>>>> Stashed changes
         void OnEnable()
         {
             if (TextEventHandler != null)
             {
+<<<<<<< Updated upstream
+=======
+                // Get a reference to the text component
+                m_TextComponent = TextEventHandler.GetComponent<TMP_Text>();
+                
+>>>>>>> Stashed changes
                 TextEventHandler.onCharacterSelection.AddListener(OnCharacterSelection);
                 TextEventHandler.onSpriteSelection.AddListener(OnSpriteSelection);
                 TextEventHandler.onWordSelection.AddListener(OnWordSelection);
@@ -56,8 +67,20 @@ namespace TMPro.Examples
 
         void OnLinkSelection(string linkID, string linkText, int linkIndex)
         {
+<<<<<<< Updated upstream
+=======
+            if (m_TextComponent != null)
+            {
+                TMP_LinkInfo linkInfo = m_TextComponent.textInfo.linkInfo[linkIndex];
+            }
+            
+>>>>>>> Stashed changes
             Debug.Log("Link Index: " + linkIndex + " with ID [" + linkID + "] and Text \"" + linkText + "\" has been selected.");
         }
 
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

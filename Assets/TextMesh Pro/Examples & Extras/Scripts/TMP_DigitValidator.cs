@@ -16,6 +16,10 @@ namespace TMPro
         {
             if (ch >= '0' && ch <= '9')
             {
+<<<<<<< Updated upstream
+=======
+                text += ch;
+>>>>>>> Stashed changes
                 pos += 1;
                 return ch;
             }

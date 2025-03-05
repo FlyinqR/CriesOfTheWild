@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
@@ -950,3 +951,8 @@ MonoBehaviour:
   ObjectStats: 'Characters: 69   Words: 10   Spaces: 9   Sprites: 0   Links: 2
 
     Lines: 4   Pages: 1'
+=======
+version https://git-lfs.github.com/spec/v1
+oid sha256:2860f48cec243dd323d7608ced821d9f48cfdc3012fbe6df74b4523b3f92829d
+size 24418
+>>>>>>> Stashed changes

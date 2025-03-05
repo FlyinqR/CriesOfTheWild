@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
@@ -101,3 +102,8 @@ MonoBehaviour:
     referenceFontAssetGUID: 3a4171c252e1112499af739474d9f48e
   m_CreationSettingsSelectionIndex: 0
   m_CreationSettingsIndex: 0
+=======
+version https://git-lfs.github.com/spec/v1
+oid sha256:a699a043195b71622df343e8c353312cdfdc49c4b8c7043eb14584c34451991c
+size 1683
+>>>>>>> Stashed changes

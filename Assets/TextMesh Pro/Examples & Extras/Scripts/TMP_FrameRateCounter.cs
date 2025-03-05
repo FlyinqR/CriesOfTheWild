@@ -30,7 +30,11 @@ namespace TMPro.Examples
                 return;
 
             m_camera = Camera.main;
+<<<<<<< Updated upstream
             Application.targetFrameRate = -1;
+=======
+            Application.targetFrameRate = 9999;
+>>>>>>> Stashed changes
 
             GameObject frameCounter = new GameObject("Frame Counter");
 
@@ -47,7 +51,11 @@ namespace TMPro.Examples
             m_TextMeshPro.fontSize = 24;
             //m_TextMeshPro.FontColor = new Color32(255, 255, 255, 128);
             //m_TextMeshPro.edgeWidth = .15f;
+<<<<<<< Updated upstream
             m_TextMeshPro.isOverlay = true;
+=======
+            //m_TextMeshPro.isOverlay = true;
+>>>>>>> Stashed changes
 
             //m_TextMeshPro.FaceColor = new Color32(255, 128, 0, 0);
             //m_TextMeshPro.EdgeColor = new Color32(0, 255, 0, 255);
@@ -92,6 +100,10 @@ namespace TMPro.Examples
 
                 //string format = System.String.Format(htmlColorTag + "{0:F2} </color>FPS \n{1:F2} <#8080ff>MS",fps, ms);
                 //m_TextMeshPro.text = format;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
                 m_TextMeshPro.SetText(htmlColorTag + fpsLabel, fps, ms);
 
                 m_Frames = 0;
@@ -130,4 +142,8 @@ namespace TMPro.Examples
             }
         }
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

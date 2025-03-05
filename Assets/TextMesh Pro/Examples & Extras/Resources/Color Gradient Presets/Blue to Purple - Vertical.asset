@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
@@ -15,3 +16,8 @@ MonoBehaviour:
   topRight: {r: 0.1544118, g: 0.5801215, b: 1, a: 1}
   bottomLeft: {r: 0.49168324, g: 0, b: 0.7058823, a: 1}
   bottomRight: {r: 0.4901961, g: 0, b: 0.7019608, a: 1}
+=======
+version https://git-lfs.github.com/spec/v1
+oid sha256:364e5cc1a41094e73de2861ffeccbd4521fef8eee2d9dbe775be1034221074b6
+size 588
+>>>>>>> Stashed changes

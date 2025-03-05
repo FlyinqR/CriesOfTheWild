@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
@@ -541,3 +542,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+version https://git-lfs.github.com/spec/v1
+oid sha256:80010ddbda5e6b95f784abf21a58a5e90dfe41b5e525e2ae02c7c9c98cb7f9be
+size 15327
+>>>>>>> Stashed changes

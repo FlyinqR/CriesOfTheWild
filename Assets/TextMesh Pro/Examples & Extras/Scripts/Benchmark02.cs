@@ -4,13 +4,21 @@ using System.Collections;
 
 namespace TMPro.Examples
 {
+<<<<<<< Updated upstream
     
+=======
+
+>>>>>>> Stashed changes
     public class Benchmark02 : MonoBehaviour
     {
 
         public int SpawnType = 0;
         public int NumberOfNPC = 12;
 
+<<<<<<< Updated upstream
+=======
+        public bool IsTextObjectScaleStatic;
+>>>>>>> Stashed changes
         private TextMeshProFloatingText floatingText_Script;
 
 
@@ -38,10 +46,19 @@ namespace TMPro.Examples
 
                     textMeshPro.color = new Color32(255, 255, 0, 255);
                     textMeshPro.text = "!";
+<<<<<<< Updated upstream
                        
                     // Spawn Floating Text
                     floatingText_Script = go.AddComponent<TextMeshProFloatingText>();
                     floatingText_Script.SpawnType = 0;
+=======
+                    textMeshPro.isTextObjectScaleStatic = IsTextObjectScaleStatic;
+
+                    // Spawn Floating Text
+                    floatingText_Script = go.AddComponent<TextMeshProFloatingText>();
+                    floatingText_Script.SpawnType = 0;
+                    floatingText_Script.IsTextObjectScaleStatic = IsTextObjectScaleStatic;
+>>>>>>> Stashed changes
                 }
                 else if (SpawnType == 1)
                 {
@@ -86,8 +103,13 @@ namespace TMPro.Examples
                     floatingText_Script.SpawnType = 0;
                 }
 
+<<<<<<< Updated upstream
                    
            
+=======
+
+
+>>>>>>> Stashed changes
             }
         }
     }

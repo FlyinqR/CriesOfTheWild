@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
@@ -936,3 +937,8 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 72}
   m_Pivot: {x: 0.5, y: 0.5}
+=======
+version https://git-lfs.github.com/spec/v1
+oid sha256:ec6ab2d9e38290113e795c1b86735b64fe6d775200a3ef9092e9a745ad6b3bf0
+size 26630
+>>>>>>> Stashed changes

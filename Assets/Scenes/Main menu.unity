@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
@@ -2480,3 +2481,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2119915991}
   m_CullTransparentMesh: 1
+=======
+version https://git-lfs.github.com/spec/v1
+oid sha256:444bc2beb713962977d3f0206c8e1459007c62a0d534fb140ca7d6cba986a74c
+size 71279
+>>>>>>> Stashed changes
