@@ -1,35 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; // Import Scene Management
 
 public class InteractionScript : MonoBehaviour
 {
     public bool HoldingItem;
-    private int ActivatedPressurePlate;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(HoldingItem && Input.GetMouseButton(1))
-        {
-            //Debug.Log("Item Dropped");
-        }
-
-        
-    }
+    private int activatedPressurePlates = 0; // Track activated plates
+    public int totalItems = 5; // Set this based on the number of items
+    private int itemsCollected = 0; // Track collected items
 
     private void OnTriggerStay(Collider collision)
     {
-        if (collision.gameObject.tag == "Interactable" && HoldingItem == false && Input.GetMouseButton(1))
+        if (collision.gameObject.tag == "Interactable" && !HoldingItem && Input.GetMouseButton(1))
         {
             HoldingItem = true;
-            Debug.Log("Item Collected");
+            itemsCollected++; // Increase collected item count
+            Debug.Log("Item Collected: " + itemsCollected);
             Destroy(collision.gameObject);
         }
 
@@ -37,22 +24,33 @@ public class InteractionScript : MonoBehaviour
         {
             Debug.Log("Item Dropped");
             HoldingItem = false;
-            ActivatedPressurePlate += 1;
-            Debug.Log("Pressure Plate Activated");
-            Debug.Log(ActivatedPressurePlate);
+            activatedPressurePlates++; // Increase activated plate count
+            Debug.Log("Pressure Plate Activated: " + activatedPressurePlates);
             collision.gameObject.SetActive(false);
+
+            CheckLevelCompletion(); // Check if all plates are activated
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void CheckLevelCompletion()
     {
-        if (collision.gameObject.tag == "Interactable")
+        if (activatedPressurePlates >= totalItems)
         {
-            Debug.Log("Item Can Be Picked Up");
+            Debug.Log("Level Complete! Loading Next Level...");
+            LoadNextLevel();
         }
-        if (collision.gameObject.tag == "PressurePlate")
+    }
+
+    private void LoadNextLevel()
+    {
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1; // Get next scene index
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings) // Check if next scene exists
         {
-            Debug.Log("Item Can Be Dropped");
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.Log("No more levels available!");
         }
     }
 }
