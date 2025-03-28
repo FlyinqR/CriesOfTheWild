@@ -9,8 +9,8 @@ public class InteractionScript : MonoBehaviour
     private int activatedPressurePlates = 0; // Track activated plates
     public int totalItems = 5; // Set this based on the number of items
     private int itemsCollected = 0; // Track collected items
-    private Material boxColor;
-    private Material PressurePlateColor;
+    public Material boxColor;
+    public Material PressurePlateColor;
 
     private void OnTriggerStay(Collider collision)
     {
@@ -19,29 +19,32 @@ public class InteractionScript : MonoBehaviour
             HoldingItem = true;
             itemsCollected++; // Increase collected item count
             Debug.Log("Item Collected: " + itemsCollected);
-            Destroy(collision.gameObject);
-            boxColor = collision.gameObject.GetComponent<MeshRenderer>().materials[0];
+            MeshRenderer boxColor = collision.gameObject.GetComponent<MeshRenderer>();
             Debug.Log(boxColor);
+            Destroy(collision.gameObject);
 
         }
 
         if (collision.gameObject.tag == "PressurePlate" && HoldingItem && Input.GetMouseButton(1))
         {
-            PressurePlateColor = collision.gameObject.GetComponent<MeshRenderer>().materials[0];
+            MeshRenderer PressurePlateColor = collision.gameObject.GetComponent<MeshRenderer>();
             Debug.Log(PressurePlateColor);
-            if (boxColor == PressurePlateColor)
+            if (PressurePlateColor.sharedMaterial == boxColor)
             {
                 Debug.Log("Item Dropped");
-                HoldingItem = false;
+                
                 activatedPressurePlates++; // Increase activated plate count
                 Debug.Log("Pressure Plate Activated: " + activatedPressurePlates);
                 collision.gameObject.SetActive(false);
 
                 CheckLevelCompletion(); // Check if all plates are activated
+                HoldingItem = false;
             }
-            else 
+            else
             {
                 Debug.Log("Wrong Piece");
+                //Debug.Log("Plate color is " + PressurePlateColor);
+                //Debug.Log("Box color is " + boxColor);
             }
            
         }
