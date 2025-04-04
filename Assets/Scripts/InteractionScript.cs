@@ -19,7 +19,7 @@ public class InteractionScript : MonoBehaviour
             HoldingItem = true;
             itemsCollected++; // Increase collected item count
             Debug.Log("Item Collected: " + itemsCollected);
-            MeshRenderer boxColor = collision.gameObject.GetComponent<MeshRenderer>();
+            boxColor = collision.gameObject.GetComponent<MeshRenderer>().materials[0];
             Debug.Log(boxColor);
             Destroy(collision.gameObject);
 
@@ -27,9 +27,9 @@ public class InteractionScript : MonoBehaviour
 
         if (collision.gameObject.tag == "PressurePlate" && HoldingItem && Input.GetMouseButton(1))
         {
-            MeshRenderer PressurePlateColor = collision.gameObject.GetComponent<MeshRenderer>();
+            PressurePlateColor = collision.gameObject.GetComponent<MeshRenderer>().materials[0];
             Debug.Log(PressurePlateColor);
-            if (PressurePlateColor.sharedMaterial == boxColor)
+            if (PressurePlateColor.name == boxColor.name)
             {
                 Debug.Log("Item Dropped");
                 
