@@ -13,24 +13,66 @@ public class InteractionScript : MonoBehaviour
     private int itemsCollected = 0; // Track collected items
     public Material boxColor;
     public Material PressurePlateColor;
-   
-   
-    
+    private bool isBigCubeOnPlate = false;
+    private GameObject bigPressurePlate;
+
+
+
     void Update()
     {
         
     }
 
 
-    
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+
+        // Make sure there's a Collider on this object
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+        {
+            Gizmos.DrawWireCube(col.bounds.center, col.bounds.extents * 2);
+        }
+    }
 
 
 
-   
 
-    
+
     private void OnTriggerStay(Collider collision)
     {
+
+        // BIG CUBE logic
+        // BIG CUBE logic
+        if (collision.gameObject.CompareTag("BigPressurePlate"))
+        {
+            Collider[] colliders = Physics.OverlapBox(collision.bounds.center, collision.bounds.extents, Quaternion.identity);
+            foreach (var col in colliders)
+            {
+                if (col.CompareTag("BigCube"))
+                {
+                    isBigCubeOnPlate = true;
+                    bigPressurePlate = collision.gameObject;
+                    GameObject bigCube = col.gameObject; // cache the big cube
+
+                    // If space is pressed while big cube is on plate
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        Destroy(bigPressurePlate); // remove pressure plate
+                        Destroy(bigCube);          // remove big cube
+
+                        activatedPressurePlates++;
+                        Debug.Log("Big Cube activated a pressure plate!");
+                        CheckLevelCompletion();
+                        isBigCubeOnPlate = false; // Reset
+                    }
+                }
+            }
+        }
+
+
         if (collision.gameObject.tag == "Interactable" && !HoldingItem && Input.GetMouseButton(1))
         {
             HoldingItem = true;
