@@ -9,7 +9,7 @@ public class InteractionScript : MonoBehaviour
 {
     public bool HoldingItem;
     private int activatedPressurePlates = 0; // Track activated plates
-    public int totalItems = 5; // Set this based on the number of items
+    [SerializeField] private int totalItems; // Set this based on the number of items
     private int itemsCollected = 0; // Track collected items
     public Material boxColor;
     public Material PressurePlateColor;
@@ -58,7 +58,7 @@ public class InteractionScript : MonoBehaviour
                     GameObject bigCube = col.gameObject; // cache the big cube
 
                     // If space is pressed while big cube is on plate
-                    if (Input.GetKeyDown(KeyCode.Space))
+                    /*if (Input.GetKeyDown(KeyCode.Space))
                     {
                         Destroy(bigPressurePlate); // remove pressure plate
                         Destroy(bigCube);          // remove big cube
@@ -67,7 +67,15 @@ public class InteractionScript : MonoBehaviour
                         Debug.Log("Big Cube activated a pressure plate!");
                         CheckLevelCompletion();
                         isBigCubeOnPlate = false; // Reset
-                    }
+                    }*/
+
+                    Destroy(bigPressurePlate); // remove pressure plate
+                    Destroy(bigCube);          // remove big cube
+
+                    activatedPressurePlates++;
+                    Debug.Log("Big Cube activated a pressure plate!");
+                    CheckLevelCompletion();
+                    isBigCubeOnPlate = false; // Reset
                 }
             }
         }
