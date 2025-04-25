@@ -17,7 +17,8 @@ public class InteractionScript : MonoBehaviour
     private GameObject bigPressurePlate;
 
 
-
+    [SerializeField] private AudioSource clickAudio;
+    [SerializeField] private AudioClip clickClip;
     void Update()
     {
         
@@ -106,6 +107,7 @@ public class InteractionScript : MonoBehaviour
 
                 CheckLevelCompletion(); // Check if all plates are activated
                 HoldingItem = false;
+                clickAudio.PlayOneShot(clickClip);
             }
             else
             {

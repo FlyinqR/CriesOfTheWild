@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float lookRotationSpeed = 8f;
     [SerializeField] private bool moving;
 
+    
+    //[SerializeField] private AudioSource walkAudio;
+
 
     void Awake()
     {
