@@ -52,7 +52,7 @@ public class TandLScript : MonoBehaviour
         time = Mathf.Max(0, time);
         int minutes = Mathf.FloorToInt(time / 60);
         int seconds = Mathf.FloorToInt(time % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.text = string.Format("Time Left: " + "{0:00}:{1:00}", minutes, seconds);
     }
 
     private void HandleLevelFailure()
