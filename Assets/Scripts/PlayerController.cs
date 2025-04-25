@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool moving;
 
     
-    //[SerializeField] private AudioSource walkAudio;
-
+    [SerializeField] private AudioSource walkAudio;
+    //[SerializeField] private AudioClip walkClip;
 
     void Awake()
     {
@@ -73,6 +73,11 @@ public class PlayerController : MonoBehaviour
         if (Vector3.Distance(agent.destination, transform.position) > 0.1)
         {
             FaceTarget();
+            walkAudio.enabled = true;
+        }
+        else 
+        {
+            walkAudio.enabled = false;
         }
 
         //SetAnimations();
