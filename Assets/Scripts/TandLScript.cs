@@ -18,6 +18,8 @@ public class TandLScript : MonoBehaviour
     public Button restartButton;
     public Button quitButton;
 
+    [SerializeField] AudioSource shotAudio;
+    [SerializeField] AudioClip shotClip;
     private void Start()
     {
         // Start with lose screen hidden
@@ -39,6 +41,7 @@ public class TandLScript : MonoBehaviour
             {
                 timerRunning = false;
                 Debug.Log("Time's up! Level failed.");
+                shotAudio.PlayOneShot(shotClip);
                 HandleLevelFailure();
             }
         }
