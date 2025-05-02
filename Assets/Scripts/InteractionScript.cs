@@ -15,10 +15,17 @@ public class InteractionScript : MonoBehaviour
     public Material PressurePlateColor;
     private bool isBigCubeOnPlate = false;
     private GameObject bigPressurePlate;
-
+    public GameObject hiddenbridge;
 
     [SerializeField] private AudioSource clickAudio;
     [SerializeField] private AudioClip clickClip;
+
+    void Start()
+    {
+        Debug.Log("Total Items Expected: " + totalItems);
+    }
+
+
     void Update()
     {
         
@@ -75,7 +82,7 @@ public class InteractionScript : MonoBehaviour
 
                     activatedPressurePlates++;
                     Debug.Log("Big Cube activated a pressure plate!");
-                    CheckLevelCompletion();
+                    
                     isBigCubeOnPlate = false; // Reset
                 }
             }
@@ -123,8 +130,13 @@ public class InteractionScript : MonoBehaviour
     {
         if (activatedPressurePlates >= totalItems)
         {
-            Debug.Log("Level Complete! Loading Next Level...");
-            LoadNextLevel();
+            Debug.Log("Level Complete! Reveling the Hidden Bridge");
+
+            if (hiddenbridge == null)
+            {
+                hiddenbridge.SetActive(true);
+            }
+           
         }
     }
 
