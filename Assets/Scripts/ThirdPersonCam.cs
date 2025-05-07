@@ -14,8 +14,6 @@ public class ThirdPersonCam : MonoBehaviour
 
     public CameraStyle currentStyle;
 
-    
-
     public enum CameraStyle
     {
         Basic,
@@ -26,8 +24,6 @@ public class ThirdPersonCam : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
-
-       
     }
 
     private void Update()
@@ -45,14 +41,10 @@ public class ThirdPersonCam : MonoBehaviour
             if (inputDir != Vector3.zero)
                 playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
         }*/
-
-
         
 
-
-
+        
+                
 
     }
-
-
 }
