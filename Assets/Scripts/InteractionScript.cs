@@ -9,10 +9,10 @@ public class InteractionScript : MonoBehaviour
 {
     public bool HoldingItem;
     private int activatedPressurePlates = 0; // Track activated plates
-   // [SerializeField]
-   
-    private int totalItems = 1; // Set this based on the number of items
-    private int itemsCollected = 0; // Track collected items
+                                             // [SerializeField]
+
+    [SerializeField] private int totalItems = 1; // Set this based on the number of items
+    [SerializeField] private int itemsCollected = 0; // Track collected items
     private Material boxColor;
     private Material PressurePlateColor;
     private bool isBigCubeOnPlate = false;
