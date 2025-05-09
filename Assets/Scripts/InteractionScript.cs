@@ -13,8 +13,8 @@ public class InteractionScript : MonoBehaviour
    
     private int totalItems = 1; // Set this based on the number of items
     private int itemsCollected = 0; // Track collected items
-    public Material boxColor;
-    public Material PressurePlateColor;
+    private Material boxColor;
+    private Material PressurePlateColor;
     private bool isBigCubeOnPlate = false;
     private GameObject bigPressurePlate;
     public GameObject Bridge;
@@ -138,7 +138,7 @@ public class InteractionScript : MonoBehaviour
             // if (!hiddenbridge.activeInHierarchy)
 
             Destroy(Bridge);
-
+            
 
         }
     }
