@@ -25,6 +25,7 @@ public class InteractionScript : MonoBehaviour
     void Start()
     {
         Debug.Log("Total Items Expected: " + totalItems);
+        
     }
 
 
@@ -134,11 +135,11 @@ public class InteractionScript : MonoBehaviour
         {
             Debug.Log("Level Complete! Reveling the Hidden Bridge");
 
-           // if (!hiddenbridge.activeInHierarchy)
-            
-                Bridge.SetActive(false);
-            
-           
+            // if (!hiddenbridge.activeInHierarchy)
+
+            Destroy(Bridge);
+
+
         }
     }
 
