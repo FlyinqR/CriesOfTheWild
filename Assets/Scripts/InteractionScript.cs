@@ -9,13 +9,15 @@ public class InteractionScript : MonoBehaviour
 {
     public bool HoldingItem;
     private int activatedPressurePlates = 0; // Track activated plates
-    [SerializeField] private int totalItems; // Set this based on the number of items
-    private int itemsCollected = 0; // Track collected items
-    public Material boxColor;
-    public Material PressurePlateColor;
+                                             // [SerializeField]
+
+    [SerializeField] private int totalItems = 1; // Set this based on the number of items
+    [SerializeField] private int itemsCollected = 0; // Track collected items
+    private Material boxColor;
+    private Material PressurePlateColor;
     private bool isBigCubeOnPlate = false;
     private GameObject bigPressurePlate;
-    public GameObject hiddenbridge;
+    public GameObject Bridge;
 
     [SerializeField] private AudioSource clickAudio;
     [SerializeField] private AudioClip clickClip;
@@ -23,12 +25,13 @@ public class InteractionScript : MonoBehaviour
     void Start()
     {
         Debug.Log("Total Items Expected: " + totalItems);
+        
     }
 
 
     void Update()
     {
-        
+        CheckLevelCompletion();
     }
 
 
@@ -112,7 +115,7 @@ public class InteractionScript : MonoBehaviour
                 Debug.Log("Pressure Plate Activated: " + activatedPressurePlates);
                 collision.gameObject.SetActive(false);
 
-                CheckLevelCompletion(); // Check if all plates are activated
+                 // Check if all plates are activated
                 HoldingItem = false;
                 clickAudio.PlayOneShot(clickClip);
             }
@@ -132,11 +135,11 @@ public class InteractionScript : MonoBehaviour
         {
             Debug.Log("Level Complete! Reveling the Hidden Bridge");
 
-            if (hiddenbridge == null)
-            {
-                hiddenbridge.SetActive(true);
-            }
-           
+            // if (!hiddenbridge.activeInHierarchy)
+
+            Destroy(Bridge);
+            
+
         }
     }
 
