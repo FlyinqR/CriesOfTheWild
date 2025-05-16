@@ -22,10 +22,12 @@ public class InteractionScript : MonoBehaviour
     [SerializeField] private AudioSource clickAudio;
     [SerializeField] private AudioClip clickClip;
 
+    private ObjectiveText objTextScript;
+
     void Start()
     {
         Debug.Log("Total Items Expected: " + totalItems);
-
+        objTextScript = GameObject.Find("GameManager").GetComponent<ObjectiveText>();
     }
 
 
@@ -79,14 +81,17 @@ public class InteractionScript : MonoBehaviour
                         CheckLevelCompletion();
                         isBigCubeOnPlate = false; // Reset
                     }*/
-
+                    CheckLevelCompletion();
+                    activatedPressurePlates++;
+                    objTextScript.ppAmount -= 1;
                     Destroy(bigPressurePlate); // remove pressure plate
                     Destroy(bigCube);          // remove big cube
 
-                    activatedPressurePlates++;
+                    
                     Debug.Log("Big Cube activated a pressure plate!");
 
                     isBigCubeOnPlate = false; // Reset
+
                 }
             }
         }
@@ -112,10 +117,11 @@ public class InteractionScript : MonoBehaviour
                 Debug.Log("Item Dropped");
 
                 activatedPressurePlates++; // Increase activated plate count
+                objTextScript.ppAmount -= 1;
                 Debug.Log("Pressure Plate Activated: " + activatedPressurePlates);
                 collision.gameObject.SetActive(false);
 
-                // Check if all plates are activated
+                CheckLevelCompletion();// Check if all plates are activated
                 HoldingItem = false;
                 clickAudio.PlayOneShot(clickClip);
             }
@@ -138,7 +144,7 @@ public class InteractionScript : MonoBehaviour
             // if (!hiddenbridge.activeInHierarchy)
 
             Destroy(Bridge);
-
+            LoadNextLevel();
 
         }
     }
