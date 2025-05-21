@@ -24,14 +24,14 @@ public class PlayerInteraction : MonoBehaviour
 
     void InteractionRay() 
     {
-        Ray ray = mainCam.ViewportPointToRay(Vector3.one / 2f);
+        Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
 
         bool hitSomething = false;
 
         if (Physics.Raycast(ray, out hit, interactionDistance)) 
         {
-            IIenteractable interactable = hit.collider.GetComponent<IIenteractable>();
+            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
 
             if (interactable != null) 
             {
