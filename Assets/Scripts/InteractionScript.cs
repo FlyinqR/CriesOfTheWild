@@ -111,7 +111,7 @@ public class InteractionScript : MonoBehaviour
         if (collision.gameObject.tag == "PressurePlate" && HoldingItem && Input.GetMouseButton(1))
         {
             PressurePlateColor = collision.gameObject.GetComponent<MeshRenderer>().materials[0];
-            Debug.Log(PressurePlateColor);
+            Debug.Log("Pressure Plate is"+ PressurePlateColor);
             if (PressurePlateColor.name == boxColor.name)
             {
                 Debug.Log("Item Dropped");
