@@ -17,8 +17,8 @@ public class PlayerInteraction : MonoBehaviour
     public LayerMask triggerLayer;     // Layer to trigger a boolean
 
     [Header("RayConfig")]
-    public int rayCount;       // Number of rays
-    public int rayLength;      // Length of the rays
+    public int rayCount = 15;       // Number of rays
+    public int rayLength = 2;      // Length of the rays
 
    
 

@@ -22,7 +22,7 @@ public class ItemPickup : MonoBehaviour, IInteractable
         interactionScript.HoldingItem = true;
         interactionScript.itemsCollected++; // Increase collected item count
         Debug.Log("Item Collected: " + interactionScript.itemsCollected);
-        //interactionScript.boxColor = collision.gameObject.GetComponent<MeshRenderer>().materials[0];
+        interactionScript.boxColor = gameObject.GetComponent<MeshRenderer>().materials[0];
         Debug.Log(interactionScript.boxColor);
         Destroy(gameObject);
         return true;

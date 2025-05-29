@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class InteractionScript : MonoBehaviour
 {
     public bool HoldingItem;
-    private int activatedPressurePlates = 0; // Track activated plates
+    public int activatedPressurePlates = 0; // Track activated plates
                                              // [SerializeField]
 
     public int totalItems = 1; // Set this based on the number of items
@@ -19,10 +19,10 @@ public class InteractionScript : MonoBehaviour
     private GameObject bigPressurePlate;
     public GameObject Bridge;
 
-    [SerializeField] private AudioSource clickAudio;
-    [SerializeField] private AudioClip clickClip;
+    public AudioSource clickAudio;
+    public AudioClip clickClip;
 
-    private ObjectiveText objTextScript;
+    public ObjectiveText objTextScript;
 
     void Start()
     {
@@ -108,34 +108,10 @@ public class InteractionScript : MonoBehaviour
 
         }*/
 
-        if (collision.gameObject.tag == "PressurePlate" && HoldingItem && Input.GetMouseButton(1))
-        {
-            PressurePlateColor = collision.gameObject.GetComponent<MeshRenderer>().materials[0];
-            Debug.Log(PressurePlateColor);
-            if (PressurePlateColor.name == boxColor.name)
-            {
-                Debug.Log("Item Dropped");
-
-                activatedPressurePlates++; // Increase activated plate count
-                objTextScript.ppAmount -= 1;
-                Debug.Log("Pressure Plate Activated: " + activatedPressurePlates);
-                collision.gameObject.SetActive(false);
-
-                CheckLevelCompletion();// Check if all plates are activated
-                HoldingItem = false;
-                clickAudio.PlayOneShot(clickClip);
-            }
-            else
-            {
-                Debug.Log("Wrong Piece");
-                //Debug.Log("Plate color is " + PressurePlateColor);
-                //Debug.Log("Box color is " + boxColor);
-            }
-
-        }
+        
     }
 
-    private void CheckLevelCompletion()
+    public void CheckLevelCompletion()
     {
         if (activatedPressurePlates >= totalItems)
         {
@@ -149,7 +125,7 @@ public class InteractionScript : MonoBehaviour
         }
     }
 
-    private void LoadNextLevel()
+    public void LoadNextLevel()
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1; // Get next scene index
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings) // Check if next scene exists
