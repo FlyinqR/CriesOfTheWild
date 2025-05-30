@@ -11,10 +11,10 @@ public class InteractionScript : MonoBehaviour
     private int activatedPressurePlates = 0; // Track activated plates
                                              // [SerializeField]
 
-    [SerializeField] private int totalItems = 1; // Set this based on the number of items
-    [SerializeField] private int itemsCollected = 0; // Track collected items
-    private Material boxColor;
-    private Material PressurePlateColor;
+    public int totalItems = 1; // Set this based on the number of items
+    public int itemsCollected = 0; // Track collected items
+    public Material boxColor;
+    public Material PressurePlateColor;
     private bool isBigCubeOnPlate = false;
     private GameObject bigPressurePlate;
     public GameObject Bridge;
@@ -96,7 +96,7 @@ public class InteractionScript : MonoBehaviour
             }
         }
 
-
+/*
         if (collision.gameObject.tag == "Interactable" && !HoldingItem && Input.GetMouseButton(1))
         {
             HoldingItem = true;
@@ -106,7 +106,7 @@ public class InteractionScript : MonoBehaviour
             Debug.Log(boxColor);
             Destroy(collision.gameObject);
 
-        }
+        }*/
 
         if (collision.gameObject.tag == "PressurePlate" && HoldingItem && Input.GetMouseButton(1))
         {
