@@ -1,38 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ItemDropoff : MonoBehaviour, IInteractable
 {
     private bool hasInteracted = false;
-    public InteractionScript interactionScript;
+    private InteractionManager interactionManager;
+    private PlayerInteraction interactor;
+    [SerializeField] private TextMeshProUGUI UIText;
+    private bool DO_allowed;
+
     public bool CanInteract()
     {
         if (hasInteracted)
         {
+            
             return false;
         }
+        DO_allowed = true;
         return true;
     }
 
     public bool Interact(PlayerInteraction interactor)
     {
-        if (interactionScript.HoldingItem && Input.GetMouseButton(1))
+        
+        if (interactionManager.HoldingItem && Input.GetMouseButton(1))
         {
-            interactionScript.PressurePlateColor = gameObject.GetComponent<MeshRenderer>().materials[0];
-            Debug.Log(interactionScript.PressurePlateColor);
-            if (interactionScript.PressurePlateColor.name == interactionScript.boxColor.name)
+            interactionManager.PressurePlateTag = gameObject.tag;
+            Debug.Log(interactionManager.PressurePlateTag);
+            if (interactionManager.PressurePlateTag == interactionManager.itemTag)
             {
                 Debug.Log("Item Dropped");
 
-                interactionScript.activatedPressurePlates++; // Increase activated plate count
-                interactionScript.objTextScript.ppAmount -= 1;
-                Debug.Log("Pressure Plate Activated: " + interactionScript.activatedPressurePlates);
+                interactionManager.activatedPressurePlates++; // Increase activated plate count
+                interactionManager.objTextScript.ppAmount -= 1;
+                Debug.Log("Pressure Plate Activated: " + interactionManager.activatedPressurePlates);
                 gameObject.SetActive(false);
 
-                interactionScript.CheckLevelCompletion();// Check if all plates are activated
-                interactionScript.HoldingItem = false;
-                interactionScript.clickAudio.PlayOneShot(interactionScript.clickClip);
+                interactionManager.CheckLevelCompletion();// Check if all plates are activated
+                interactionManager.HoldingItem = false;
+                interactionManager.clickAudio.PlayOneShot(interactionManager.clickClip);
                 return true;
             }
             else
@@ -50,12 +58,21 @@ public class ItemDropoff : MonoBehaviour, IInteractable
     // Start is called before the first frame update
     void Start()
     {
-        interactionScript = GameObject.Find("InteractionRadius").GetComponent<InteractionScript>();
+        interactionManager = GameObject.Find("InteractionRadius").GetComponent<InteractionManager>();
+        interactor = GameObject.Find("Player").GetComponent<PlayerInteraction>();
+        UIText = GameObject.Find("InteractionText").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (DO_allowed) 
+        {
+            UIText.text = "Activate";
+        }
+        if (interactor.DoInteractionTest(out IInteractable interactable))
+        {
+            DO_allowed = false;
+        }
     }
 }

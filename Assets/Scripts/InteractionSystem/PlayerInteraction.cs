@@ -54,7 +54,7 @@ public class PlayerInteraction : MonoBehaviour
         }
 
     }
-    private bool DoInteractionTest(out IInteractable interactable)
+    public bool DoInteractionTest(out IInteractable interactable)
     {
         interactable = null;
         float angleStep = 360f / rayCount;

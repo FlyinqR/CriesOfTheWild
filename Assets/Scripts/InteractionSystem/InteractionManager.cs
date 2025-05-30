@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;   // Import Scene Management
 using UnityEngine.UI;
 
-public class InteractionScript : MonoBehaviour
+public class InteractionManager : MonoBehaviour
 {
     public bool HoldingItem;
     public int activatedPressurePlates = 0; // Track activated plates
@@ -13,8 +13,10 @@ public class InteractionScript : MonoBehaviour
 
     public int totalItems = 1; // Set this based on the number of items
     public int itemsCollected = 0; // Track collected items
-    public Material boxColor;
-    public Material PressurePlateColor;
+
+    public string itemTag;
+    public string PressurePlateTag;
+
     private bool isBigCubeOnPlate = false;
     private GameObject bigPressurePlate;
     public GameObject Bridge;

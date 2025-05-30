@@ -1,29 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ItemPickup : MonoBehaviour, IInteractable
 {
     private bool hasInteracted = false;
-    public InteractionScript interactionScript;
-
+    private InteractionManager interactionManager;
+    private PlayerInteraction interactor;
+    [SerializeField] private TextMeshProUGUI UIText;
+    private bool PU_allowed;
 
     public bool CanInteract()
     {
         if (hasInteracted) 
         {
+            
             return false;
         }
+        PU_allowed = true;
         return true;
     }
 
     public bool Interact(PlayerInteraction interactor)
     {
-        interactionScript.HoldingItem = true;
-        interactionScript.itemsCollected++; // Increase collected item count
-        Debug.Log("Item Collected: " + interactionScript.itemsCollected);
-        interactionScript.boxColor = gameObject.GetComponent<MeshRenderer>().materials[0];
-        Debug.Log(interactionScript.boxColor);
+        interactionManager.HoldingItem = true;
+        interactionManager.itemsCollected++; // Increase collected item count
+        Debug.Log("Item Collected: " + interactionManager.itemsCollected);
+        interactionManager.itemTag = gameObject.tag;
+        Debug.Log(interactionManager.itemTag);
         Destroy(gameObject);
         return true;
     }
@@ -31,12 +36,22 @@ public class ItemPickup : MonoBehaviour, IInteractable
     // Start is called before the first frame update
     void Start()
     {
-        interactionScript = GameObject.Find("InteractionRadius").GetComponent<InteractionScript>();
+        interactionManager = GameObject.Find("InteractionRadius").GetComponent<InteractionManager>();
+        interactor = GameObject.Find("Player").GetComponent<PlayerInteraction>();
+        UIText = GameObject.Find("InteractionText").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (PU_allowed)
+        {
+            UIText.text = "Collect";
+        }
+        if (interactor.DoInteractionTest(out IInteractable interactable)) 
+        {
+            PU_allowed = false;
+        }
     }
 }
+
