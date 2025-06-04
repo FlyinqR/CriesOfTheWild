@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource walkAudio;
     //[SerializeField] private AudioClip walkClip;
 
+    private TandLScript tandLScript;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        tandLScript = GameObject.Find("TimeManager").GetComponent<TandLScript>();
         moving = false;
     }
 
@@ -83,7 +86,10 @@ public class PlayerController : MonoBehaviour
         //SetAnimations();
 
 
-
+        if (tandLScript.playerLose) 
+        {
+            walkAudio.enabled = false;
+        }
     }
 
 

@@ -20,14 +20,21 @@ public class TandLScript : MonoBehaviour
 
     [SerializeField] AudioSource shotAudio;
     [SerializeField] AudioClip shotClip;
+
+    public bool playerLose;
     private void Start()
     {
         // Start with lose screen hidden
         if (loseScreenUI != null)
+        {
             loseScreenUI.SetActive(false);
+        }
+            
 
         // Unpause in case the game was paused before
         Time.timeScale = 1f;
+
+        playerLose = false;
     }
 
     void Update()
@@ -43,6 +50,7 @@ public class TandLScript : MonoBehaviour
                 Debug.Log("Time's up! Level failed.");
                 shotAudio.PlayOneShot(shotClip);
                 HandleLevelFailure();
+                playerLose = true;
             }
         }
     }
@@ -70,7 +78,7 @@ public class TandLScript : MonoBehaviour
     private void RestartLevel()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Level1");
     }
 
     private void QuitGame()
