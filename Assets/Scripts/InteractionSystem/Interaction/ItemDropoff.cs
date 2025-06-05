@@ -32,7 +32,7 @@ public class ItemDropoff : MonoBehaviour, IInteractable
             if (interactionManager.PressurePlateTag == interactionManager.itemTag)
             {
                 Debug.Log("Item Dropped");
-
+                interactionManager.HoldingItem = false;
                 interactionManager.activatedPressurePlates++; // Increase activated plate count
                 interactionManager.objTextScript.ppAmount -= 1;
                 Debug.Log("Pressure Plate Activated: " + interactionManager.activatedPressurePlates);

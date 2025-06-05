@@ -24,13 +24,17 @@ public class ItemPickup : MonoBehaviour, IInteractable
 
     public bool Interact(PlayerInteraction interactor)
     {
-        interactionManager.HoldingItem = true;
-        interactionManager.itemsCollected++; // Increase collected item count
-        Debug.Log("Item Collected: " + interactionManager.itemsCollected);
-        interactionManager.itemTag = gameObject.tag;
-        Debug.Log(interactionManager.itemTag);
-        Destroy(gameObject);
-        return true;
+        if (interactionManager.HoldingItem == false) 
+        {
+            interactionManager.HoldingItem = true;
+            interactionManager.itemsCollected++; // Increase collected item count
+            Debug.Log("Item Collected: " + interactionManager.itemsCollected);
+            interactionManager.itemTag = gameObject.tag;
+            Debug.Log(interactionManager.itemTag);
+            Destroy(gameObject);
+            return true;
+        }
+        return false;
     }
 
     // Start is called before the first frame update
