@@ -26,10 +26,13 @@ public class InteractionManager : MonoBehaviour
 
     public ObjectiveText objTextScript;
 
+    private LevelLoader levelLoader;
+
     void Start()
     {
         Debug.Log("Total Items Expected: " + totalItems);
         objTextScript = GameObject.Find("GameManager").GetComponent<ObjectiveText>();
+        levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
     }
 
 
@@ -122,23 +125,12 @@ public class InteractionManager : MonoBehaviour
             // if (!hiddenbridge.activeInHierarchy)
 
             Destroy(Bridge);
-            LoadNextLevel();
+            levelLoader.LoadNextLevel();
 
         }
     }
 
-    public void LoadNextLevel()
-    {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1; // Get next scene index
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings) // Check if next scene exists
-        {
-            SceneManager.LoadScene(nextSceneIndex);
-        }
-        else
-        {
-            Debug.Log("No more levels available!");
-        }
-    }
+    
 
 
 }
