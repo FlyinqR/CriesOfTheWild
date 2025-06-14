@@ -25,7 +25,7 @@ public class PlayerInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        interactionUI = GameObject.Find("InteractionUI");
     }
 
     // Update is called once per frame

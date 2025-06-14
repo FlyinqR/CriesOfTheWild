@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 
     private TandLScript tandLScript;
 
+    public Animator playerAni;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -77,10 +79,12 @@ public class PlayerController : MonoBehaviour
         {
             FaceTarget();
             walkAudio.enabled = true;
+            playerAni.SetBool("canWalk", true);
         }
         else 
         {
             walkAudio.enabled = false;
+            playerAni.SetBool("canWalk", false);
         }
 
         //SetAnimations();
