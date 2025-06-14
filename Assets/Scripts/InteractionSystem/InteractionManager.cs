@@ -91,8 +91,8 @@ public class InteractionManager : MonoBehaviour
                     objTextScript.ppAmount -= 1;
                     Destroy(bigPressurePlate); // remove pressure plate
                     Destroy(bigCube);          // remove big cube
+                    clickAudio.PlayOneShot(clickClip);
 
-                    
                     Debug.Log("Big Cube activated a pressure plate!");
 
                     isBigCubeOnPlate = false; // Reset

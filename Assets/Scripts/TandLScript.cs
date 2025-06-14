@@ -83,8 +83,9 @@ public class TandLScript : MonoBehaviour
 
     private void QuitGame()
     {
-        Time.timeScale = 1f;
         Application.Quit();
+        Time.timeScale = 0f;
+        
         Debug.Log("Game Quit");
     }
 }
